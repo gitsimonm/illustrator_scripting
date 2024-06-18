@@ -24,7 +24,8 @@ var hex, name;
 
 for (var i = 0; i < doc.layers.length; i++) {
     for (var j = 0; j < doc.layers[i].groupItems.length; j++) {
-        hex = doc.layers[i].groupItems[j].pageItems[0].name.split('_')[3];
+        hex = doc.layers[i].groupItems[j].pageItems[0].name.split('~')[2];
+        hex = hex.replace(/^[ ]+|[ ]+$/g,'')
         conname = doc.layers[i].groupItems[j].pageItems[0].name;
         doc.layers[i].groupItems[j].pageItems[0].fillColor = rgbToAdobeRGB(hexToRgb(hex, conname));
         if (doc.layers[i].groupItems[j].pageItems[0].pathItems) {
